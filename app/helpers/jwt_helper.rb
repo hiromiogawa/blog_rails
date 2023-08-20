@@ -7,6 +7,9 @@ module JwtHelper
 
   def self.decode(token)
     secret = Rails.application.credentials.secret_key_base
+    Rails.logger.debug ENV['JWT_EXPIRY']
+
+
     JWT.decode(token, secret, true, { algorithm: 'HS256' })[0]
   rescue JWT::DecodeError => e
     Rails.logger.error "JWT decode error: #{e.message}"

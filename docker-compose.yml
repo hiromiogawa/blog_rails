@@ -1,6 +1,8 @@
 version: "3.9"
 services:
   db:
+    ports:
+      - "3306:3306"
     image: mysql:8.0
     volumes:
       - ./tmp/db:/var/lib/mysql
@@ -23,3 +25,4 @@ services:
       - db
     environment:
       DATABASE_URL: mysql2://${MYSQL_USER}:${MYSQL_PASSWORD}@db/${MYSQL_DATABASE}
+      JWT_EXPIRY: ${JWT_EXPIRY}
