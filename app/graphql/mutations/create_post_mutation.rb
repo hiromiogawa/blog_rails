@@ -1,5 +1,5 @@
 module Mutations
-  class PostMutation < Mutations::BaseMutation
+  class CreatePostMutation < Mutations::BaseMutation
     argument :title, String, required: true
     argument :content, String, required: true
     argument :user_id, ID, required: true

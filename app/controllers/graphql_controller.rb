@@ -48,6 +48,7 @@ class GraphqlController < ApplicationController
   # ログイン認証
   def authorize
     token = request.headers[:HTTP_AUTHORIZATION]&.split('Bearer ')&.last
+
     return unless token
 
     decoded_token = JwtHelper.decode(token)
